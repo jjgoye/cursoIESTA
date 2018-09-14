@@ -1,0 +1,88 @@
+---
+title: 'Tarea 1: RMarkdown'
+author: "Juan JosÃ© Goyeneche"
+date: "10 de setiembre de 2018"
+output:
+  pdf_document:
+    number_sections: yes
+    toc: yes
+  html_document:
+    df_print: paged
+    toc: yes
+geometry: margin=3cm
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introducción
+
+Este ejercicio de simulación incluye las fórmulas en el documento (para esto
+es necesario escribir en lenguaje LaTex).
+
+Genero los datos según $N \sim Po(90)$, y luego  para $i=1,\ldots, N$, $x_i \sim Unif(0,1)$ y 
+$y_i \sim Unif(0,1)$.
+
+```{r, echo=TRUE}
+set.seed(12345)
+N <- rpois(1, lambda=90)
+x <- runif(N)
+y <- runif(N)
+```
+Para luego ponerlos en un dataframe
+
+```{r}
+df <- data.frame(x=x, y=y)
+```
+
+
+Mi [repositorio personal        en github](<https://github.com/jjgoye/cursoIESTA/tree/master/tarea1/Rmarkdown>), donde están los archivos necesarios.
+
+# Simulaciones y tabla
+
+Las estadísticas de los    datos simulados se obtienen con:
+
+```{r, eval=FALSE, echo=TRUE}
+library(xtable)
+xtable(summary(df))
+```
+## Medidas de resumen
+
+\begin{table}[h]
+\centering
+\begin{tabular}{rll}
+\hline
+& x & y \\
+\hline
+1 & Min. :0.001137 & Min. :0.009464 \\
+2 & 1st Qu.:0.247632 & 1st Qu.:0.349809 \\
+3 & Median :0.505534 & Median :0.629943 \\
+4 & Mean :0.506314 & Mean :0.580663 \\
+5 & 3rd Qu.:0.758928 & 3rd Qu.:0.812205 \\
+6 & Max. :0.989737 & Max. :0.993378 \\
+\hline
+\end{tabular}
+\caption{Medidas de resumen}
+\label{table:1}
+\end{table}
+
+En la Tabla \ref{table:1} se observa que la mediana de las x 
+es `r round(median(x),4)`.
+
+## Gráfica
+
+<!-- \begin{figure}[h] -->
+<!-- \caption{Example of a parametric plot ($\sin (x), \cos(x), x$)} -->
+<!-- \centering -->
+<!-- `r plot(x, y)` -->
+<!-- \end{figure} -->
+
+
+
+You can also embed plots, for example:
+
+
+# Figura
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
