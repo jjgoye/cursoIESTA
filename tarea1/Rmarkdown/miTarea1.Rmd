@@ -23,6 +23,7 @@ Pendientes:
     - dice Table y Figure ....
     - xtable no me gustó
     - posicionar la gráfica con "ht" o algo similar
+    - no se como &%$#@ compartir el folder
 
 Este ejercicio de simulación incluye las fórmulas en el documento (para esto
 es necesario escribir en lenguaje LaTex).
