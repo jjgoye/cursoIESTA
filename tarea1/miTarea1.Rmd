@@ -1,6 +1,6 @@
 ---
 title: 'Tarea 1: RMarkdown'
-author: "Juan JosÃ© Goyeneche"
+author: "Juan José Goyeneche"
 date: "10 de setiembre de 2018"
 output:
   pdf_document:
