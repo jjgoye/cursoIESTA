@@ -20,13 +20,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Pendientes: 
 
-    - dice Table y Figure ....
+    - dice Table y Figure y en el TOC dice Contents ....
     - xtable no me gustó
     - posicionar la gráfica con "ht" o algo similar
     - no se como &%$#@ compartir el folder
 
 Este ejercicio de simulación incluye las fórmulas en el documento (para esto
-es necesario escribir en lenguaje LaTex).
+es necesario escribir en lenguaje \LaTeX).
 
 Genero los datos según $N \sim Po(90)$, y luego  para $i=1,\ldots, N$, $x_i \sim Unif(0,1)$ y 
 $y_i \sim Unif(0,1)$.
