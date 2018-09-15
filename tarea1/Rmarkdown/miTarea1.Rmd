@@ -18,6 +18,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Introducción
 
+Pendientes: 
+
+    - dice Table y Figure ....
+    - xtable no me gustó
+    - posicionar la gráfica con "ht" o algo similar
+
 Este ejercicio de simulación incluye las fórmulas en el documento (para esto
 es necesario escribir en lenguaje LaTex).
 
