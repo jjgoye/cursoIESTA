@@ -70,6 +70,14 @@ xtable(summary(df))
 En la Tabla \ref{table:1} se observa que la mediana de las x 
 es `r round(median(x),4)`.
 
+
+You can also embed plots, for example:
+
+
+# Figura
+
+Un gráfico de $x$ vs $y$:
+
 ## Gráfica
 
 <!-- \begin{figure}[h] -->
@@ -78,11 +86,10 @@ es `r round(median(x),4)`.
 <!-- `r plot(x, y)` -->
 <!-- \end{figure} -->
 
+Esto ha sido muy doloroso, especialmente ver que RMarkdown pone las gráficas donde se le canta (al igual que \LaTeX pa decir la verdad)
+
+```{r graf1, echo=FALSE, fig.cap="Dispersión x vs y", fig.align='center'}
+plot(x,y, xlab='', ylab='')
+```
 
 
-You can also embed plots, for example:
-
-
-# Figura
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
