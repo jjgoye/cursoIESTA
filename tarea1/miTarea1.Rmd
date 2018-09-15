@@ -1,7 +1,7 @@
 ---
 title: 'Tarea 1: RMarkdown'
 author: "Juan José Goyeneche"
-date: "10 de setiembre de 2018"
+date: "Lunes 10 de setiembre de 2018"
 output:
   pdf_document:
     number_sections: yes
