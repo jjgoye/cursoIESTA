@@ -1,0 +1,85 @@
+---
+title: "Tarea 1: Solución"
+author: "Natalia da Silva, Ignacio Alvarez-Castro"
+output: 
+  pdf_document: 
+   number_sections: true
+geometry: margin = 3cm
+fontsize: 12pt
+---
+
+Esta es la solución de la primer tarea. Usamos dos librerías.
+
+```{r, message=FALSE}
+options(xtable.comment = FALSE)
+library(tidyverse)
+library(xtable)
+```
+
+El preámbulo del documento debe ser como sigue:
+
+```{r, eval=FALSE}
+title: "Tarea 1: RMarkdown"
+author: "Natalia da Silva, Ignacio Alvarez-Castro"
+output: 
+  pdf_document: 
+   number_sections: true
+geometry: margin = 3cm
+fontsize: 12pt
+```
+Lo que sigue responde a cada sección de la tarea 1.
+
+
+# Introducción
+
+En esta sección se  usan datos simulados para ilustrar el uso de ecuaciones, tablas y figuras en archivos `Rmarkdwon`. Los datos se simulan como se muestra ecuación \eqref{formu}, para incluir las fórmulas en el documento se debe usar LaTeX
+```{r, eval=FALSE}
+\begin{equation} \label{formu}
+\begin{array}{ll} 
+ N \sim Po(90) & \mbox{cantidad de puntos} \\
+ x_i \sim Unif(0, 1) & N \mbox{ observaciones } \\
+ y_i \sim Unif(0, 1) & N \mbox{ observaciones }
+\end{array}
+\end{equation}
+```
+
+\begin{equation} \label{formu}
+\begin{array}{ll} 
+ N \sim Po(90) & \mbox{cantidad de puntos} \\
+ x_i \sim Unif(0, 1) & N \mbox{ observaciones } \\
+ y_i \sim Unif(0, 1) & N \mbox{ observaciones }
+\end{array}
+\end{equation}
+
+A su vez en la introdución debieron incluir el link a su repositorio en GitHub con el archivo Rmd para reproducir la Tarea 1 https://github.com/su_usuario/Rmarkdown. 
+
+# Simulaciones y tablas
+
+1. Simulamos los datos 
+
+```{r, echo=TRUE, message=FALSE}
+n <- rpois(1, 90)
+d <- data_frame(x = runif(n), y = runif(n))
+med <- d %>% summarise( m = median(x) ) %>% as.numeric() 
+```
+
+2. Hacemos la tabla
+
+```{r, echo=TRUE,  results='asis', message=FALSE, warning=FALSE}
+apply(d, 2, fivenum) %>% data.frame() %>%
+  mutate(stat = c('min', 'q25', 'med', 'q75', 'max')) %>%
+  select(stat, everything()) %>%
+  xtable(caption = 'Resumen datos simulados', label = 'tab1') %>%
+  print(caption.placement = 'top', include.rownames = FALSE)
+```
+
+3. En la Tabla \ref{tab1} se observa que la mediana de las $x$ es `r med`.
+
+# Figura
+```{r, fig.cap='Una simulacion de un proceso de Poisson en 2D'}
+d %>% ggplot() +
+  geom_point( aes(x, y) ) + 
+  labs(title = 'Datos simulados') + 
+  theme_bw()
+```
+
