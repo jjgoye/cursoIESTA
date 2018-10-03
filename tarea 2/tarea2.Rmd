@@ -22,6 +22,7 @@ https://catalogodatos.gub.uy/dataset/gasto_am_2016_fondo-nacional-de-recursos/re
 Los pueden leer en R de la siguiente forma:
 
 ```{r, echo=TRUE}
+library(tidyverse)
 gastolink <- 'https://catalogodatos.gub.uy/dataset/96e636e5-4f78-49a7-8e14-60e90173a0c0/resource/936ac9e6-b0f6-424a-9b53-ee408a91fd6f/download/datos_gastos-por-actos-mdicos-2016.csv'
 
 gastos <- read.csv(gastolink, header = TRUE, dec = ",",encoding="latin1") 
@@ -36,7 +37,9 @@ a. ¿Cuál es la prestación con mayor cantidad de actos médicos en Montevideo?
 
 ```{r}
 library(tidyverse)
-gastos %>% filter(Prestador_departamento=="MONTEVIDEO")
+gastos %>% filter(Prestador_departamento=="MONTEVIDEO") %>%
+    group_by(Prestacion) %>% summarise(n=n()) %>%
+    filter(n==max(n))
 ```
 
 b. Creá una variable con los totales de actos médicos por Departamento de residencia (`Departamento_residencia`). ¿Cuál es el departamento de residencia con menor cantidad de actos médicos?      
